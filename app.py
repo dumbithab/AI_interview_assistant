@@ -33,7 +33,7 @@ except (KeyError, FileNotFoundError):
 st.success("Groq API connected successfully!")
 
 st.write("Welcome to your AI Interview Assistant.")
-role =st.selectbox("Job Title", ["Machine Learning Engineer", "Senior Software Engineering","data","analysis","cyber","others"])
+role =st.selectbox("Job Title", ["Machine Learning Engineer", "Senior Software Engineering","data","analysis","cyber","Others"])
 
 if role =="Others":
     st.text_input("Enter your Job Title",XXXXXX)
