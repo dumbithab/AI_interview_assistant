@@ -1,10 +1,35 @@
 import streamlit as st
-from groq import Groq
-st.set_page_config(page_title="LLM",layout="centered")
-st.title("AI Interview Assistant")
-st.caption("practice and prepare for your interview")
+
+# Page configuration
+st.set_page_config(
+    page_title="LLM",
+    layout="centered"
+)
+
+# Application title
+st.title("AI Interview")
+st.caption("Practice and Prepare for your placement")
+
+# Import Groq safely
 try:
-  client = Groq(api_key = st.secrets["GROQ_API_KEY"])
-  except(keyerror, FileNotFound):
-    st.error("API key is missing. Add it in Advanced Setting")
+    from groq import Groq
+
+except ImportError:
+    st.error("Groq package is not installed.")
+    st.info("Add groq to your requirements.txt file and redeploy.")
     st.stop()
+
+# API configuration
+try:
+    client = Groq(
+        api_key=st.secrets["GROQ_API_KEY"]
+    )
+
+except (KeyError, FileNotFoundError):
+    st.error("API key is missing. Add it in Streamlit Secrets.")
+    st.stop()
+
+# Success message
+st.success("Groq API connected successfully!")
+
+st.write("Welcome to your AI Interview Assistant.")
