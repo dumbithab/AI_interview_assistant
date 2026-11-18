@@ -1,5 +1,10 @@
 import streamlit as st
 from groq import Groq
-st.set_page_config(page_title='LLM',layout='centered')
-st.title('AI Interview Assistant')
-st.caption('practice and prepare for your interview')
+st.set_page_config(page_title="LLM",layout="centered")
+st.title("AI Interview Assistant")
+st.caption("practice and prepare for your interview")
+try:
+  client = Groq(api_key = st.secrets["GROQ_API_KEY"])
+  except(keyerror, FileNotFound):
+    st.error("API key is missing. Add it in Advanced Setting")
+    st.stop()
