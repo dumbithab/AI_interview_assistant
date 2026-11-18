@@ -50,4 +50,4 @@ level = st.selectbox(
         "begginer","intermideate","advanced"
     ]
 )
-mode= st.radio("Activity",["General Questions","Generate Code Questions","Evaluate Answers","Improve answers"])
+mode= st.radio("Activity",["Generate Questions","Generate Code Questions","Evaluate Answers","Improve answers"])
