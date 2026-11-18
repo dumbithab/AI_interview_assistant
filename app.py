@@ -33,22 +33,21 @@ except (KeyError, FileNotFoundError):
 st.success("Groq API connected successfully!")
 
 st.write("Welcome to your AI Interview Assistant.")
-role =st.selectbox("Job Title", ["Machine Learning Engineer", "Senior Software Engineering","data","analysis","cyber","Others"])
+role =st.selectbox("Job Title", ["Machine Learning Engineer", "Senior Software Engineering","data analysis","cyber security","software develovper","Others"])
 
 if role =="Others":
     st.text_input("Enter your Job Title","XXXXXX")
-    model = st.selectbox("choose your model",
-     [
-     openai/gpt-oss-120b
-     openai/gpt-oss-20b
-     ]
-     )
-    level = st.selectbox(
-        "chosse your level",
-        [
-            
+model = st.selectbox(
+    "choose your model",
+[
+"openai/gpt-oss-120b"
+"openai/gpt-oss-20b"
+]
+)
+level = st.selectbox(
+    "choose your level",
+    [
         "begginer","intermideate","advanced"
-        ]
-    )
-    model= st.radio("Activity ",["General Question","Generate code Questions","Evaluate Answers","Improve answers"])
-        
+    ]
+)
+mode= st.radio("Activity",["General Questions","Generate Code Questions","Evaluate Answers","Improve answers"])
