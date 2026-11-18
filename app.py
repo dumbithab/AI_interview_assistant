@@ -51,3 +51,12 @@ level = st.selectbox(
     ]
 )
 mode= st.radio("Activity",["Generate Questions","Generate Code Questions","Evaluate Answers","Improve answers"])
+if mode =="Generate Question" :
+    count = st.slider("Number Of Questions",1,10,5)
+elif mode =="Generate code Questions" :
+    topic = st.selectbox( "Select Topic",
+                         [ "Python", "C++", "C", "DSA", "Aptitude","Java"])
+    count= st.slider("Number of Questions",1,10,5)
+else:
+    question = st.text_area("Enter Interview Question Here")
+    answer = st.text_area("Enter Your Answer", height=160)
