@@ -50,5 +50,5 @@ if role =="Others":
         "begginer","intermideate","advanced"
         ]
     )
-    model st.radio("Activity ",["General Question","Generate code Questions","Evaluate Answers","Improve answers"])
+    model= st.radio("Activity ",["General Question","Generate code Questions","Evaluate Answers","Improve answers"])
         
