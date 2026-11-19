@@ -63,7 +63,7 @@ else:
     answer = st.text_area("Enter Your Answer", height=160)
     
     if st.button("Generate AI Response",type = "primary"):
-        if mode == ["Evaluate Answer","Improve Answer"] and (not question.strip())
+        if mode == ["Evaluate Answer","Improve Answer"] and (not question.strip()):
        st.warning("please enter a valid Question and Answer")
         st.stop()
     topics = "Topic is" + topic +"Difficulty is" +level
