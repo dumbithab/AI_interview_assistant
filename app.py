@@ -74,7 +74,7 @@ else:
     elif mode == "Evaluate Answers":
         task = "Question:"+ question + "Answer: "+answer+"Evaluate the answer based on the question and identify the drawbacks ."
     elif mode == "Improve Answer" :
-        task = "Question:" = question + "Answer: " + answer + "Improve the answer based on the result and highligth the important points."
+        task = "Question:" + question + "Answer: " + answer + "Improve the answer based on the result and highligth the important points."
 
 backround = "Job Role :" +role + "Difficulty level" +level 
     with st.spinner("Generating Your answer....."):
