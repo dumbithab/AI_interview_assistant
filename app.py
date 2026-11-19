@@ -4,6 +4,7 @@ import streamlit as st
 st.set_page_config(
     page_title="LLM",
     layout="centered"
+    
 )
 
 # Application title
@@ -60,3 +61,40 @@ elif mode =="Generate code Questions" :
 else:
     question = st.text_area("Enter Interview Question Here")
     answer = st.text_area("Enter Your Answer", height=160)
+    
+    if st.button("Generate AI Response",type = "primary"):
+        if mode == ["Evaluate Answer","Improve Answer"] and (not question.strip())
+       st.warning("please enter a valid Question and Answer")
+        st.stop()
+    topics = "Topic is" + topic +"Difficulty is" +level
+    if mode == "Generate Question" :
+        task = "Generate" + str(count) +"Frequently asked Interview question 3 situation based questions as well as 2 theory questions"
+    elif mode == "Generate Code Questions":
+        task="Generate" +str(count) + "Frequently asked Coding or technical questions for the topics"+ topic + "and give me the hints with accurate performance."
+    elif mode == "Evaluate Answers":
+        task = "Question:"+ question + "Answer: "+answer+"Evaluate the answer based on the question and identify the drawbacks ."
+    elif mode == "Improve Answer" :
+        task = "Question:" = question + "Answer: " + answer + "Improve the answer based on the result and highligth the important points."
+
+backround = "Job Role :" +role + "Difficulty level" +level 
+    with st.spinner("Generating Your answer....."):
+        try:
+            req = client.chat.completions.create (
+    model=  gen_model , 
+    messages =[
+        {"role" : "system", "content" : " Act as You are an expert Technical Interviewer as well the HR "},
+        {
+            "role" : "user", "content" : backround + task
+        }
+
+    ],
+    temperature = 0.7 ,
+    max_tokens = 1800 )
+            output = response.choices[0].message.content
+            st.subhheader("AI Response")
+            st.markdown(output)
+            t.download_button("Download Response", output,file_name = "Interview_Respones.txt",main='text/plain')
+        except Exception as e:
+            st.error ("API connection was Unsuccessfull:", e)
+            st.info("please check your API key and  rate limits ")
+            st.caption("powered by streamlit.io and GitHub. using LLM API")
